@@ -1,13 +1,20 @@
-# Meteora
-Meteora is a tweak to completly bring back the iOS 9 lockscreen to iOS 10+    
-Currently it is a work in progress. Once this project is completed it will be released on BigBoss as a paid package.    
-This tweak was mainly created by Me (iKilledAppl3) but I open sourced it hoping someone would help fix the bugs. Skitty decided to help so I could release it. Most things done in this tweak was written by me.    
+# About
+Meteora was a tweak to bring back the iOS 9 lockscreen to iOS 10. This is my fork which intended to add notifications support.
+This tweak was mainly created by iKilledAppl3 and Skittyblock but was never fully finished.
+On iOS 10, the old Lockscreen is not completely removed from SpringBoard. See the section "Why doesn't certain things work" below. This is what makes this tweak possible.
 
-# Things to Do!
-- Notifications: The Notifications are only half completed and still need to be finished.
-- Fix more bugs: Yeah, there's lots more bugs we know.
-- Prevent the Lockscreen from relocking itself when you tap on a notification in the NC, tap to open the Music application on the Lockscreen (from the Control Center).
-- Somehow add support for tweaks that modify SBDashBoardViewController since I disabled it with this tweak to make it more authentic to the user! (be that as bringing back all the old lockscren methods that Apple still has in iOS 10).
+Note: I have never developed jailbreak tweaks before. I tried my best to use best practices but so much of jailbreak tweak dev involves a lot of tribal knowledge not well documented online. Feel free to fork this repo and complete what I started if you wish.
+
+# Known Bugs
+There are a lot of bugs with my fork. While I succeeded in adding notifications, my update never made it out of WIP stage.
+- Notifications cannot swipe to clear. I was close to figuring this out but didn't quite get there. The touch events aren't getting sent properly to the Bulletin cells, something else is intercepting it.
+- Notifications won't swipe to open. Most of my energy was spent trying to discover why they weren't clearing so I never took a proper look at this one. Yes I did set the default action on each bulletin so idk.
+- Alarms will sound but the overlay won't appear on the LS. I got around this by unlocking, then locking again or pressing power a few times.
+- On rare occasion some notifications will send twice. This only happened to me with missed calls, but it may happen with other apps I'm not sure.
+- Using the camera on the LS will open the camera app once you unlock.
+- Memory leaks. I spent a lot of time squashing memory leaks but there is still a few I didn't get to.
+
+-----
 
 # Why doesn't certain things work?
 - Simple the methods I use are from iOS 9 and although Apple has them in iOS 10 they're subclassed or rather the SBDashBoardViewController (and other SBDashBoard components) are the ones calling the shots here. 
