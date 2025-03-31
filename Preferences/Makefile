@@ -1,7 +1,7 @@
 ARCHS = armv7 arm64
-TARGET = iphone:clang:latest
+TARGET = iphone:clang:10.2
 
-include theos/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = Meteora
 Meteora_FILES = Meteora.mm
