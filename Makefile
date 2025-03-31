@@ -1,7 +1,10 @@
-ARCHS = armv7 arm64
-TARGET = iphone:clang:latest
+TARGET = iphone:clang:10.2
+ARCHS = arm64
+
+Meteora_SYSROOT = $(THEOS)/sdks/iPhoneOS10.2.sdk
 
 include $(THEOS)/makefiles/common.mk
+THEOS_DEVICE_IP=192.168.1.3
 
 TWEAK_NAME = Meteora
 Meteora_FILES = Tweak.xm
